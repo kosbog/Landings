@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Начни играть правильно</title>
+    <!-- Mobile redirect -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.0/mobile-detect.min.js"></script>
+    <script>
+        (function(){
+            'use strict';
+
+            var location = window.location,
+            agent = navigator.userAgent || navigator.vendor || window.opera,
+            mobilePrefix = 'm',
+            hostname = location.hostname.split('.'),
+            isWWW = /w{3}|ww\d/.test(hostname[0]);
+
+            if(
+                hostname[0] === mobilePrefix ||
+                isWWW && hostname[1] === mobilePrefix
+            ) {
+                return ;
+            }
+
+            if(isWWW) {
+                hostname.splice(1, 0, mobilePrefix);
+            } else {
+                hostname.unshift(mobilePrefix);
+            }
+
+            var url = [
+                location.protocol + '//', //protocol
+                hostname.join('.'), //hostname
+                location.port ? ':' + location.port : '', //port
+                location.pathname, //path
+                location.search ? location.search : '' // query
+            ].join('');
+
+            var md = new MobileDetect(agent),
+                tablet = md.tablet(),
+                mobile = md.mobile();
+
+            if(mobile || tablet) {
+                window.location = url;
+            }
+
+        })();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="./assets/css/media.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="logo">
+            <a href="/">
+                <img src="./assets/img/logo.png" alt="" class="logo-img">
+            </a>
+        </div>
+        <div class="name">
+            <h1 class="name-header">
+                Начни играть правильно
+            </h1>
+        </div>
+        <form novalidate id="email-form">
+            <div class="coins">
+                <input type="radio" id="gift-1" name="giftId" value="36">
+                <label for="gift-1" class="coins-label-1">
+                    <img src="./assets/img/coin-1.png" alt="" class="coins-img coins-img-1">
+                    <img src="./assets/img/coin-1-1.png" alt="" class=" coins-img-1hover coins-hover">
+                </label>
+                <input type="radio" id="gift-2" name="giftId" value="37">
+                <label for="gift-2" class="coins-label-2">
+                    <img src="./assets/img/coin-2.png" alt="" class="coins-img coins-img-2">
+                    <img src="./assets/img/coin-2-1.png" alt="" class="coins-hover coins-img-2hover">
+                </label>
+                <input type="radio" id="gift-3" name="giftId" value="38">
+                <label for="gift-3" class="coins-label-3">
+                    <img src="./assets/img/coin-3.png" alt="" class="coins-img coins-img-3">
+                    <img src="./assets/img/coin-3-1.png" alt="" class="coins-hover coins-img-3hover">
+                </label>
+            </div>
+            <div class="register">
+                <div class="register-social" id="uLoginButtons"
+                     data-ulogin="display=buttons;optional=email;callback=uloginAuthCb">
+                    <p class="social-info">Войдите с помощью соцсети:</p>
+                    <ul class="socials-list">
+                        <li class="socials-i">
+                            <button class="social-img fb" data-uloginbutton="facebook"></button>
+                        </li>
+                        <li class="socials-i">
+                            <button class="social-img vk" data-uloginbutton="vkontakte"></button>
+                        </li>
+                        <li class="socials-i">
+                            <button class="social-img ok" data-uloginbutton="odnoklassniki"></button>
+                        </li>
+                        <li class="socials-i">
+                            <button class="social-img mr" data-uloginbutton="mailru"></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="register-mail">
+                    <p class="mail-info">
+                        Или введите почту и нажмите зарегистрироваться
+                    </p>
+                    <input class="mail-input" name="email" type="email">
+                    <div class="mail-input-error-text">
+                        <p class="input-error-text">
+                        </p>
+                    </div>
+                </div>
+                <div class="register-button">
+                    <input class="button-input" type="submit" value="Зарегистрироваться">
+                    </input>
+                </div>
+            </div>
+        </form>
+    </div>
+    <footer id="footer">
+        <img class="opacityImg img2" src="./assets/img/symantec.png" alt="">
+        <img class="opacityImg" src="./assets/img/age.png" alt="">
+        <img class="opacityImg" src="./assets/img/lock.png" alt="">
+        <span>Помощь 24/7</span>
+        <img class="support-img" src="./assets/img/girl.png" alt="">
+        <img class="img1" src="./assets/img/logo.png" alt="">
+    </footer>
+</div>
+<script src="https://ulogin.ru/js/ulogin.js"></script>
+<script src="./assets/js/slot.js"></script>
+<script src="./assets/js/cookie.js"></script>
+<script src="./assets/js/shared.js"></script>
+
+</body>
+</html>
