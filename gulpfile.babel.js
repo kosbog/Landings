@@ -154,7 +154,7 @@ gulp.task('browser-sync', () => {
         logLevel: 'info'
     });
 
-    gulp.watch('./shared/**/*.js', ['shared']);
+    // gulp.watch('./shared/**/*.js', ['shared']);
     gulp.watch(`./projects/${argv.project}/**/*.js`, ['js:local']);
     gulp.watch(`./projects/${argv.project}/**/*.scss`, ['sass:local']);
     gulp.watch(`./projects/${argv.project}/**/*.+(css|html|png|svg|gif|jpg|ico|ttf|otf|eot|woff|woff2)`, ['copy_assets:local']);
@@ -169,7 +169,7 @@ gulp.task('check_argv', () => {
    }
 });
 
-gulp.task('default', ['check_argv', 'shared', 'symlinks:local', 'js:local', 'sass:local', 'copy_assets:local', 'browser-sync']);
+gulp.task('default', ['check_argv', 'js:local', 'sass:local', 'copy_assets:local', 'browser-sync']);
 
 // gulp.task('build', ['images', 'videos', 'shared', 'symlinks', 'copy_assets', 'assets.revisioning'], () => {
 //     let streams = projects.map(project => {
