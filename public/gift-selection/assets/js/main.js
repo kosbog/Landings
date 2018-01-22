@@ -4,19 +4,26 @@ $(document).ready(function () {
 
     var soundTheme = document.getElementById('sound-theme'),
         soundJedi = document.getElementById('sound-jedi'),
-        soundDart = document.getElementById('sound-dart');
+        soundDart = document.getElementById('sound-dart'),
+        val = 10;
+
+    soundTheme.play();
 
     setTimeout(function () {
-        soundTheme.play();
-    }, 1000);
-
-    setTimeout(function () {
-
         document.getElementsByClassName('name')[0].classList.add('show-element');
         setTimeout(function () {
             document.getElementById('email-form').classList.add('show-element');
         }, 700);
     }, 19000);
+
+    var path = setInterval(function () {
+        val < 420 ? (document.getElementsByTagName('body')[0].style.backgroundPositionY = val + 'px', soundTheme.volume = 1 - val * 0.0017) : stopPath();
+        val++;
+    }, 50);
+
+    function stopPath() {
+        clearInterval(path);
+    }
 
     uLogin.customInit('uLoginButtons');
 
