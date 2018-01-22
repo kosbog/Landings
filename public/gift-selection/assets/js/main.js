@@ -2,6 +2,22 @@
 
 $(document).ready(function () {
 
+    var soundTheme = document.getElementById('sound-theme'),
+        soundJedi = document.getElementById('sound-jedi'),
+        soundDart = document.getElementById('sound-dart');
+
+    setTimeout(function () {
+        soundTheme.play();
+    }, 1000);
+
+    setTimeout(function () {
+
+        document.getElementsByClassName('name')[0].classList.add('show-element');
+        setTimeout(function () {
+            document.getElementById('email-form').classList.add('show-element');
+        }, 700);
+    }, 19000);
+
     uLogin.customInit('uLoginButtons');
 
     $('.social-img').hover(function () {
@@ -20,6 +36,14 @@ $(document).ready(function () {
     $('.mail-input').focus(function () {
         $('.mail-input').removeClass('mail-input-error');
         $('.input-error-text').text('');
+    });
+
+    $('.coins-label-1').click(function () {
+        soundJedi.play();
+    });
+
+    $('.coins-label-2').click(function () {
+        soundDart.play();
     });
 
     function submitForm() {

@@ -1,4 +1,20 @@
-$(document).ready(function() {
+$(document).ready(function () {
+
+    var soundTheme = document.getElementById('sound-theme'),
+        soundJedi = document.getElementById('sound-jedi'),
+        soundDart = document.getElementById('sound-dart');
+
+    setTimeout(() => {
+        soundTheme.play();
+    }, 1000);
+
+    setTimeout(() => {
+        
+        document.getElementsByClassName('name')[0].classList.add('show-element');
+        setTimeout(() => {
+            document.getElementById('email-form').classList.add('show-element');
+        }, 700);
+    }, 19000);
 
     uLogin.customInit('uLoginButtons');
 
@@ -10,7 +26,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('#email-form').on('submit', function(e) {
+    $('#email-form').on('submit', function (e) {
         e.preventDefault();
         submitForm();
     });
@@ -20,8 +36,16 @@ $(document).ready(function() {
         $('.input-error-text').text('');
     });
 
+    $('.coins-label-1').click(function () {
+        soundJedi.play();
+    });
+
+    $('.coins-label-2').click(function () {
+        soundDart.play();
+    });
+
     function submitForm() {
-        var email = $('.mail-input').val(); 
+        var email = $('.mail-input').val();
         var emailRegExp = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/;
         if (!email || !email.match(emailRegExp)) {
             $('.mail-input').addClass('mail-input-error');
@@ -35,7 +59,7 @@ $(document).ready(function() {
                 name: "username",
                 value: makeRandomStr()
             });
-            var a = data.reduce(function(prev, curr) {
+            var a = data.reduce(function (prev, curr) {
                 var key = curr.name,
                     val = curr.value;
                 prev[key] = val;

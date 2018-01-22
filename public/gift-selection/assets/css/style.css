@@ -5,6 +5,47 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: 'distant_galaxyregular';
+  src: url("../font/DISTGRG_-webfont.woff") format("woff"), url("../font/DISTGRG_-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@-webkit-keyframes star {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) translateZ(450px) translateY(70%);
+            transform: perspective(400px) translateZ(450px) translateY(70%); }
+  7% {
+    opacity: 0; }
+  13% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) translate(0, 0);
+            transform: perspective(400px) translateZ(0) translate(0, 0); } }
+
+@keyframes star {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) translateZ(450px) translateY(70%);
+            transform: perspective(400px) translateZ(450px) translateY(70%); }
+  7% {
+    opacity: 0; }
+  13% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) translate(0, 0);
+            transform: perspective(400px) translateZ(0) translate(0, 0); } }
+
+.star {
+  -webkit-animation: star 20s linear;
+          animation: star 20s linear; }
+
+.show-element {
+  opacity: 1;
+  -webkit-transition: .3s;
+  transition: .3s; }
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -25,7 +66,8 @@ body {
 
 .wrapper {
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+  overflow: hidden; }
 
 .container {
   max-width: 1000px;
@@ -33,34 +75,41 @@ body {
   margin: 0 auto;
   padding-bottom: 105px; }
 
+.ttt {
+  -webkit-transform: perspective(400px);
+          transform: perspective(400px); }
+
 .logo, .name {
   text-align: center; }
 
 .logo-img {
-  width: 26.1%;
-  margin: 14px 0 0 -7px; }
+  width: 100%;
+  margin: 50px 0; }
+
+.name, form {
+  opacity: 0; }
 
 .name-header {
   margin: 0;
   color: #fff;
-  font-family: aa_bebas_neueregular;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.99);
-  font-size: 5.4375rem;
+  font-family: distant_galaxyregular;
+  text-shadow: 0px 0px 60px rgba(255, 232, 31, 0.7);
+  font-size: 4.4375rem;
   font-weight: 100;
-  line-height: 87px;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   padding-bottom: 35px; }
 
 .coins {
   position: relative;
-  height: 360px; }
+  height: 390px;
+  padding-top: 30px; }
 
 .coins input {
   display: none; }
 
 .coins label {
-  width: 33%;
+  width: 25%;
   position: absolute;
   display: inline-block;
   cursor: pointer;
@@ -68,45 +117,16 @@ body {
 
 .coins-img {
   position: relative;
-  margin-right: 14px;
-  width: 100%;
-  max-width: 320px; }
+  width: 100%; }
 
-.coins-label-1 {
+.coins-label-1, .coins-label-2 {
   background-color: #fff;
   border-radius: 50%;
-  margin-left: 13.333333%; }
+  margin-left: 20%; }
 
 .coins-label-2 {
-  margin-left: 54.3%;
   background-color: #f00;
-  border-radius: 50%; }
-
-.coins-label-3 {
-  margin-left: 66.6%; }
-
-.coins-img-1hover, .coins-img-2hover, .coins-img-3hover {
-  position: absolute;
-  z-index: 1;
-  opacity: 0; }
-
-.coins-img-1hover {
-  z-index: 1;
-  left: 15px;
-  top: 24px; }
-
-.coins-img-2hover {
-  position: absolute;
-  left: 0;
-  top: 0; }
-
-.coins-img-3hover {
-  position: absolute;
-  left: 0;
-  top: 0; }
-
-.coins-img:last-child {
-  margin-right: 0; }
+  margin-left: 55%; }
 
 .coins-label-1, .coins-label-2, .coins-label-3 {
   -webkit-transition: .3s linear;
@@ -123,11 +143,13 @@ body {
   -webkit-box-shadow: #ff0000 0 0 45px 3px;
           box-shadow: #ff0000 0 0 45px 3px; }
 
-input[type=radio]:checked + label .coins-hover {
-  opacity: 1; }
+input[type=radio]:checked + label.coins-label-1 {
+  -webkit-box-shadow: #fff 0 0 45px 3px;
+          box-shadow: #fff 0 0 45px 3px; }
 
-input[type=radio]:checked + label .coins-img {
-  width: 100%; }
+input[type=radio]:checked + label.coins-label-2 {
+  -webkit-box-shadow: #ff0000 0 0 45px 3px;
+          box-shadow: #ff0000 0 0 45px 3px; }
 
 .register {
   color: #ffffff;
@@ -139,10 +161,10 @@ input[type=radio]:checked + label .coins-img {
   float: left; }
 
 .mail-info, .social-info {
-  font-family: Arial, sans-serif;
+  font-family: distant_galaxyregular;
   font-size: 12px;
   margin: 0 0 12px;
-  letter-spacing: 0.4px; }
+  text-shadow: 0px 0px 30px rgba(255, 232, 31, 0.7); }
 
 .socials-list {
   padding: 0;
@@ -201,26 +223,19 @@ input[type=radio]:checked + label .coins-img {
 
 .mail-input {
   outline: none;
-  border: 2px solid #174408;
+  border: 3px solid #ffe81f;
   border-radius: 10px;
-  width: 358px;
+  width: 357px;
   height: 53px;
   font-size: 1.8em;
   padding: 0 .5em;
-  background: white;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(42%, white), color-stop(94%, #d6d6d6));
-  background: linear-gradient(to bottom, white 42%, #d6d6d6 94%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d6d6d6', GradientType=0);
-  /* IE6-9 */
-  -webkit-box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.6);
-  box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.6); }
+  background: black;
+  color: #fff;
+  -webkit-transition: .6s;
+  transition: .6s; }
 
 .mail-input-error {
-  border: 2px solid #ff0000;
+  border: 3px solid #ff0000;
   -webkit-transition: .6s;
   transition: .6s; }
 
@@ -244,57 +259,28 @@ input[type=radio]:checked + label .coins-img {
 .button-input {
   cursor: pointer;
   outline: none;
-  -webkit-box-shadow: inset 1px 1px 1px rgba(180, 226, 169, 0.7);
-          box-shadow: inset 1px 1px 1px rgba(180, 226, 169, 0.7);
-  height: 57px;
+  height: 53px;
   line-height: 51px;
-  width: 329px;
-  background: #46b42b;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#46b42b), color-stop(0%, #46b42b), color-stop(48%, #46b42b), to(#398915));
-  background: linear-gradient(to bottom, #46b42b 0%, #46b42b 0%, #46b42b 48%, #398915 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#46b42b', endColorstr='#398915', GradientType=0);
-  /* IE6-9 */
-  font-family: aa_bebas_neueregular;
+  width: 357px;
+  background: rgba(0, 0, 0, 0.699);
+  font-family: distant_galaxyregular;
   font-size: 39px;
   letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.85);
+  color: white;
   text-transform: uppercase;
-  text-shadow: 0px 0px 8px #13470b;
-  border: 2px solid rgba(21, 62, 6, 0.7);
-  border-right-width: 3px;
-  border-bottom-width: 3px;
-  border-radius: 10px; }
+  border: 3px solid #ffe81f;
+  border-radius: 10px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  text-align: center; }
 
 .button-input:hover {
-  cursor: pointer;
-  outline: none;
-  -webkit-box-shadow: inset 3px 3px 1px rgba(180, 226, 169, 0.7);
-          box-shadow: inset 3px 3px 1px rgba(180, 226, 169, 0.7);
-  height: 57px;
-  width: 329px;
-  background: #46b42b;
-  /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#46b42b), color-stop(0%, #46b42b), color-stop(48%, #46b42b), to(#398915));
-  background: linear-gradient(to bottom, #46b42b 0%, #46b42b 0%, #46b42b 48%, #398915 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#46b42b', endColorstr='#398915', GradientType=0);
-  /* IE6-9 */
-  font-family: aa_bebas_neueregular;
-  font-size: 39px;
-  letter-spacing: 1px;
-  color: #fff;
-  text-transform: uppercase;
-  text-shadow: 0px 0px 8px #13470b;
-  border: 2px solid rgba(21, 62, 6, 0.7);
-  border-right-width: 5px;
-  border-bottom-width: 5px;
-  border-radius: 10px; }
+  -webkit-box-shadow: 0 0 13px 2px #ffe81f;
+          box-shadow: 0 0 13px 2px #ffe81f;
+  background: #ffe81f;
+  color: #000;
+  -webkit-transition: all .2s;
+  transition: all .2s; }
 
 /* Footer */
 #footer {
@@ -349,5 +335,10 @@ input[type=radio]:checked + label .coins-img {
   letter-spacing: 1.35px;
   display: inline-block;
   margin-top: .3em; }
+
+.show-element {
+  opacity: 1;
+  -webkit-transition: .7s;
+  transition: .7s; }
 
 /*# sourceMappingURL=style.css.map */
