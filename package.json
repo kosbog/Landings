@@ -31,10 +31,7 @@
     "yargs": "^8.0.1"
   },
   "scripts": {
-    "deploy:stage": "$(npm bin)/fly stage --flightplan deploy/deploy.js && NODE_ENV=stage npm run generate_landings_list",
-    "deploy:prod": "$(npm bin)/fly prod --flightplan deploy/deploy.js && NODE_ENV=prod npm run generate_landings_list",
     "build": "npm i -g babel-core && $(npm bin)/gulp build",
-    "generate_landings_list": "node deploy/htmlList/index.js",
     "imagemin": "gulp images.min"
   },
   "author": "",
