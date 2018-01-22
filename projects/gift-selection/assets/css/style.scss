@@ -31,7 +31,7 @@ html, body {
 }
 
 body {
-    background: url("../img/outer-space-hd-wallpaper.jpg") no-repeat scroll center 0;
+    background: url("../img/starbg.jpg") repeat scroll center 0;
 }
 
 .wrapper {
@@ -65,13 +65,12 @@ body {
     line-height: 87px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    padding-bottom: 15px;
+    padding-bottom: 35px;
 }
 
 .coins {
-    margin-right: -10px;
     position: relative;
-    height: 310px;
+    height: 360px;
 }
 
 .coins input {
@@ -83,17 +82,26 @@ body {
     position: absolute;
     display: inline-block;
     cursor: pointer;
+    padding: 10px;    
 }
 
 .coins-img {
     position: relative;
     margin-right: 14px;
-    width: 90%;
+    width: 100%;
     max-width: 320px;
 }
 
+.coins-label-1 {
+    background-color: #fff;
+    border-radius: 50%;
+    margin-left: 13.333333%;
+}
+
 .coins-label-2 {
-    margin-left: 33.3%;
+    margin-left: 54.3%;
+    background-color: #f00;
+    border-radius: 50%;
 }
 
 .coins-label-3 {
@@ -136,11 +144,9 @@ body {
     transition: .3s linear;
 }
 
-.coins-label-1:hover .coins-img,
-.coins-label-2:hover .coins-img,
-.coins-label-3:hover .coins-img {
-    /*transform: scale(1.1);*/
-    width: 100%;
+.coins-label-1:hover,
+.coins-label-2:hover {
+    box-shadow: #fff 0 0 45px 3px;
     -webkit-transition: .2s linear;
     -moz-transition: .2s linear;
     -ms-transition: .2s linear;
@@ -148,17 +154,9 @@ body {
     transition: .2s linear;
 }
 
-.coins-label-1:hover .coins-img-1hover,
-.coins-label-2:hover .coins-img-2hover,
-.coins-label-3:hover .coins-img-3hover {
-    opacity: 1;
-    -webkit-transition: .5s linear;
-    -moz-transition: .5s linear;
-    -ms-transition: .5s linear;
-    -o-transition: .5s linear;
-    transition: .5s linear;
+.coins-label-2:hover {
+    box-shadow: #ff0000 0 0 45px 3px;
 }
-
 
 input[type=radio]:checked + label .coins-hover {
   opacity: 1;
