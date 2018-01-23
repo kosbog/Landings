@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>May the force be with you!..</title>
+    <!-- Mobile redirect -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.0/mobile-detect.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var location = window.location,
+                agent = navigator.userAgent || navigator.vendor || window.opera,
+                mobilePrefix = 'm',
+                hostname = location.hostname.split('.'),
+                isWWW = /w{3}|ww\d/.test(hostname[0]);
+
+            if (
+                hostname[0] === mobilePrefix ||
+                isWWW && hostname[1] === mobilePrefix
+            ) {
+                return;
+            }
+
+            if (isWWW) {
+                hostname.splice(1, 0, mobilePrefix);
+            } else {
+                hostname.unshift(mobilePrefix);
+            }
+
+            var url = [
+                location.protocol + '//', //protocol
+                hostname.join('.'), //hostname
+                location.port ? ':' + location.port : '', //port
+                location.pathname, //path
+                location.search ? location.search : '' // query
+            ].join('');
+
+            var md = new MobileDetect(agent),
+                tablet = md.tablet(),
+                mobile = md.mobile();
+
+            if (mobile || tablet) {
+                window.location = url;
+            }
+
+        })();
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/media.css" />
+</head>
+
+<body>
+    <audio id="sound-dart">
+        <source src="./assets/audio/Darth Vader.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sound-jedi">
+        <source src="./assets/audio/lightsaber_02.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sound-theme">
+        <source src="./assets/audio/star_wars_main_theme_2.mp3" type="audio/mpeg">
+    </audio>
+    <div class="wrapper">
+        <div class="container">
+            <div class="logo star">
+                <a href="/">
+                    <img src="./assets/img/sw_logo_oneline.png" alt="" class="logo-img">
+                </a>
+            </div>
+            <div class="name">
+                <h1 class="name-header">
+                    choose your side
+                </h1>
+            </div>
+            <form novalidate id="email-form">
+
+                <div class="coins">
+                    <input type="radio" id="gift-1" name="giftId" value="36">
+                    <label for="gift-1" class="coins-label-1">
+                        <img src="./assets/img/Alliance_logo.png" alt="" class="coins-img coins-img-1">
+                    </label>
+                    <input type="radio" id="gift-2" name="giftId" value="37">
+                    <label for="gift-2" class="coins-label-2">
+                        <img src="./assets/img/empire_logo.png" alt="" class="coins-img coins-img-2">
+                    </label>
+                </div>
+                <div class="register">
+                    <div class="register-social" id="uLoginButtons" data-ulogin="display=buttons;optional=email;callback=uloginAuthCb">
+                        <p class="social-info">With social network sign in:</p>
+                        <ul class="socials-list">
+                            <li class="socials-i">
+                                <button class="social-img fb" data-uloginbutton="facebook"></button>
+                            </li>
+                            <li class="socials-i">
+                                <button class="social-img vk" data-uloginbutton="vkontakte"></button>
+                            </li>
+                            <li class="socials-i">
+                                <button class="social-img ok" data-uloginbutton="odnoklassniki"></button>
+                            </li>
+                            <li class="socials-i">
+                                <button class="social-img mr" data-uloginbutton="mailru"></button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="register-mail">
+                        <p class="mail-info">
+                            Or your email enter and "Fight now" click
+                        </p>
+                        <input class="mail-input" name="email" type="email" placeholder="...">
+                        <div class="mail-input-error-text">
+                            <p class="input-error-text">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="register-button">
+                        <input class="button-input" type="submit" value="fight now">
+                        </input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ulogin.ru/js/ulogin.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/cookie.js"></script>
+</body>
+
+</html>
