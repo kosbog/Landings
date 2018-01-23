@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function () {
 
     var winCounter = 0,
@@ -20,19 +22,17 @@ $(document).ready(function () {
         $('.error-text').text('');
     });
 
-    window.uloginAuthCb = function (token) {
-        
-    };
+    window.uloginAuthCb = function (token) {};
 
     // ---------------- CUSTOM FUNCTIONS
     $galleryItem.on({
-        'win': function () {
+        'win': function win() {
             $(this).addClass('right-choice');
         },
-        'loose': function () {
+        'loose': function loose() {
             $(this).addClass('wrong-choice');
         },
-        'cancelLoose': function () {
+        'cancelLoose': function cancelLoose() {
             $(this).removeClass('wrong-choice');
         }
     });
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         startNumber.text("00:01:00");
 
-        $clock.animate({opacity: 1}, 1750);
+        $clock.animate({ opacity: 1 }, 1750);
 
         var clockId = setInterval(function () {
             seconds--;
@@ -76,13 +76,11 @@ $(document).ready(function () {
             if (seconds < 0) {
                 clearInterval(clockId);
                 popupShow($popupLoose);
-            }
-            else if (winCounter === 3) {
+            } else if (winCounter === 3) {
                 clearInterval(clockId);
                 startNumber.text("00:00:0");
                 popupShow($popupWin);
-            }
-            else {
+            } else {
                 startNumber.text("00:00:" + seconds);
             }
         }, 1000);
@@ -128,3 +126,4 @@ $(document).ready(function () {
         parent.append($galleryItem);
     }
 });
+//# sourceMappingURL=slot.js.map
