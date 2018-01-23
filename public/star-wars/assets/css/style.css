@@ -50,12 +50,17 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-.container::after, .logo::after, .name::after, .coins::after, .register::after {
+.container::after,
+.logo::after,
+.name::after,
+.coins::after,
+.register::after {
   content: "";
   display: table;
   clear: both; }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -79,14 +84,17 @@ body {
   -webkit-transform: perspective(400px);
           transform: perspective(400px); }
 
-.logo, .name {
+.logo,
+.name {
   text-align: center; }
 
 .logo-img {
   width: 100%;
   margin: 50px 0; }
 
-.name, form {
+.name {
+  position: relative;
+  top: 300px;
   opacity: 0; }
 
 .name-header {
@@ -119,16 +127,21 @@ body {
   position: relative;
   width: 100%; }
 
-.coins-label-1, .coins-label-2 {
+.coins-label-1,
+.coins-label-2 {
   background-color: #fff;
   border-radius: 50%;
-  margin-left: 20%; }
+  margin-left: 20%;
+  -webkit-transform: scale(0);
+          transform: scale(0); }
 
 .coins-label-2 {
   background-color: #f00;
   margin-left: 55%; }
 
-.coins-label-1, .coins-label-2, .coins-label-3 {
+.coins-label-1,
+.coins-label-2,
+.coins-label-3 {
   -webkit-transition: .3s linear;
   transition: .3s linear; }
 
@@ -152,15 +165,21 @@ input[type=radio]:checked + label.coins-label-2 {
           box-shadow: #ff0000 0 0 45px 3px; }
 
 .register {
+  position: relative;
+  z-index: -1;
+  opacity: 0;
   color: #ffffff;
   margin: 25px -10px;
   padding-left: 20px;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8); }
 
-.register-button, .register-mail, .register-social {
+.register-button,
+.register-mail,
+.register-social {
   float: left; }
 
-.mail-info, .social-info {
+.mail-info,
+.social-info {
   font-family: distant_galaxyregular;
   font-size: 12px;
   margin: 0 0 12px;
@@ -227,10 +246,11 @@ input[type=radio]:checked + label.coins-label-2 {
 .mail-input-error-text,
 .mail-input-error-text2 {
   position: absolute;
-  font-size: 14px;
+  font-size: 12px;
   font-family: Arial, sans-serif;
   color: #ff0000;
-  text-shadow: none; }
+  text-shadow: none;
+  font-family: distant_galaxyregular; }
 
 .error {
   visibility: visible; }

@@ -2,22 +2,41 @@
 
 $(document).ready(function () {
 
-    var soundTheme = document.getElementById('sound-theme'),
-        soundJedi = document.getElementById('sound-jedi'),
-        soundDart = document.getElementById('sound-dart'),
+    var soundTheme = $('#sound-theme'),
+        soundJedi = $('#sound-jedi'),
+        soundDart = $('#sound-dart'),
+        titleName = $('.name'),
+        coinsOne = $('.coins-label-1'),
+        coinsTwo = $('.coins-label-2'),
+        registerForm = $('.register'),
         val = 10;
 
-    soundTheme.play();
+    document.getElementById('sound-theme').play();
 
     setTimeout(function () {
-        document.getElementsByClassName('name')[0].classList.add('show-element');
-        setTimeout(function () {
-            document.getElementById('email-form').classList.add('show-element');
-        }, 700);
+        titleName.velocity({ opacity: 1, translateY: "-300px" }, {
+            easing: [0.215, 0.61, 0.355, 1],
+            duration: 1500,
+            complete: function complete() {
+                coinsOne.velocity({ scale: [1, 0] }, {
+                    easing: [0.895, 0.03, 0.685, 0.22],
+                    duration: 1000,
+                    complete: function complete() {
+                        coinsTwo.velocity({ scale: [1, 0] }, {
+                            easing: [0.895, 0.03, 0.685, 0.22],
+                            duration: 700,
+                            complete: function complete() {
+                                registerForm.velocity({ opacity: 1, zIndex: 1 }, { duration: 1500 });
+                            }
+                        });
+                    }
+                });
+            }
+        });
     }, 19000);
 
     var path = setInterval(function () {
-        val < 420 ? (document.getElementsByTagName('body')[0].style.backgroundPositionY = val + 'px', soundTheme.volume = 1 - val * 0.0017) : stopPath();
+        val < 420 ? (document.getElementsByTagName('body')[0].style.backgroundPositionY = val + 'px', document.getElementById('sound-theme').volume = 1 - val * 0.0017) : stopPath();
         val++;
     }, 50);
 
@@ -46,11 +65,11 @@ $(document).ready(function () {
     });
 
     $('.coins-label-1').click(function () {
-        soundJedi.play();
+        document.getElementById('sound-jedi').play();
     });
 
     $('.coins-label-2').click(function () {
-        soundDart.play();
+        document.getElementById('sound-dart').play();
     });
 
     function submitForm() {
@@ -58,7 +77,7 @@ $(document).ready(function () {
         var emailRegExp = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/;
         if (!email || !email.match(emailRegExp)) {
             $('.mail-input').addClass('mail-input-error');
-            $('.input-error-text').text('Введите Вашу почту. Верный формат: example@gmail.com');
+            $('.input-error-text').text('Your email enter here...');
             return false;
         }
 
