@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function () {
 
     var winCounter = 0,
@@ -9,30 +11,40 @@ $(document).ready(function () {
         $loose = $('.loose');
 
     countDownTimer();
+    randomGallerySort();
 
     // -------- EMAIL VALIDATION AND ULOGIN FUNCTIONS
     $('#email-form').on('submit', function (e) {
         e.preventDefault();
-        wl_shared.registerUser($('.email-input').val());
+        submitForm();
     });
 
     $('.email-input').focus(function () {
+        $('.email-input').removeClass('email-input-error');
         $('.error-text').text('');
     });
 
-    window.uloginAuthCb = function (token) {
-        
-    };
+    function submitForm() {
+        var email = $('.email-input').val();
+        var emailRegExp = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/;
+        if (!email || !email.match(emailRegExp)) {
+            $('.email-input').addClass('email-input-error');
+            $('.error-text').text('Enter your email. Correct format: example@gmail.com');
+            return false;
+        }
+    }
+
+    window.uloginAuthCb = function (token) {};
 
     // ---------------- CUSTOM FUNCTIONS
     $galleryItem.on({
-        'win': function () {
+        'win': function win() {
             $(this).addClass('right-choice');
         },
-        'loose': function () {
+        'loose': function loose() {
             $(this).addClass('wrong-choice');
         },
-        'cancelLoose': function () {
+        'cancelLoose': function cancelLoose() {
             $(this).removeClass('wrong-choice');
         }
     });
@@ -64,33 +76,34 @@ $(document).ready(function () {
     function countDownTimer() {
         var seconds = 60,
             $clock = $('.clock'),
-            startNumber = $('.clock p');
+            $startNumber = $('.clock p');
 
-        startNumber.text("00:01:00");
+        $startNumber.text("00:01:00");
 
-        $clock.animate({opacity: 1}, 1750);
+        $clock.animate({ opacity: 1 }, 1750);
 
         var clockId = setInterval(function () {
             seconds--;
 
             if (seconds < 0) {
+                $startNumber.removeClass('timeEnd');
                 clearInterval(clockId);
                 popupShow($popupLoose);
-            }
-            else if (winCounter === 3) {
+            } else if (winCounter === 3) {
                 clearInterval(clockId);
-                startNumber.text("00:00:0");
+                $startNumber.text("00:00:00");
                 popupShow($popupWin);
-            }
-            else {
-                startNumber.text("00:00:" + seconds);
+            } else {
+                if (seconds == 10) {
+                    $startNumber.addClass('timeEnd');
+                };
+                seconds >= 10 ? $startNumber.text("00:00:" + seconds) : $startNumber.text("00:00:0" + seconds);
             }
         }, 1000);
     }
 
     function popupShow(elem) {
         elem.fadeIn();
-        wl_shared.postHits(true);
     }
 
     function popupHide(elem) {
@@ -128,3 +141,4 @@ $(document).ready(function () {
         parent.append($galleryItem);
     }
 });
+//# sourceMappingURL=slot.js.map
