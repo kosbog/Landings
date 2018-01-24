@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon shortcut" href="assets/img/favicon.ico" sizes="16x16">
+    <title>Золотая коллекция игр Вулкана</title>
+    <link rel="stylesheet" href="./assets/css/main.css"/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!-- Mobile redirect -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.0/mobile-detect.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            var location = window.location,
+                    agent = navigator.userAgent || navigator.vendor || window.opera,
+                    mobilePrefix = 'm',
+                    hostname = location.hostname.split('.'),
+                    isWWW = /w{3}|ww\d/.test(hostname[0]);
+            if (
+                    hostname[0] === mobilePrefix ||
+                    isWWW && hostname[1] === mobilePrefix
+            ) {
+                return;
+            }
+            if (isWWW) {
+                hostname.splice(1, 0, mobilePrefix);
+            } else {
+                hostname.unshift(mobilePrefix);
+            }
+            var url = [
+                location.protocol + '//', //protocol
+                hostname.join('.'), //hostname
+                location.port ? ':' + location.port : '', //port
+                location.pathname, //path
+                location.search ? location.search : '' // query
+            ].join('');
+            var md = new MobileDetect(agent),
+                    tablet = md.tablet(),
+                    mobile = md.mobile();
+            if (mobile || tablet) {
+                window.location = url;
+            }
+        })();
+    </script>
+</head>
+<body>
+<div id="popup">
+    <form novalidate id="email-form" class="popup-container">
+        <div class="popup-regform">
+            <input type="email" name="email" placeholder="ВВЕДИТЕ ВАШУ ПОЧТУ" class="email-input">
+            <button type="submit" class="email-button">Получить бонус</button>
+            <img class="regform-blick" src="./assets/img/reg-button-blick.png" alt="">
+            <img class="regform-mail-icon" src="./assets/img/mail-icon.png" alt="">
+        </div>
+        <div class="email-error">
+            <p class="error-text">
+            </p>
+        </div>
+        <div class="popup-close">
+            <img src="./assets/img/popup-close.png" alt="">
+        </div>
+    </form>
+</div>
+<div class="container">
+    <header>
+        <div class="logo"><a href="/"><img src="./assets/img/logo.png" alt=""></a></div>
+        <div class="title"><h1>ЗОЛОТАЯ КОЛЛЕКЦИЯ ИГР ВУЛКАНА</h1></div>
+        <div class="reg-button">
+            <a href="/user/register" class="email-button">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+            <img class="reg-button-blick" src="./assets/img/reg-button-blick.png" alt="">
+        </div>
+    </header>
+    <div class="content">
+        <div class="game-button">
+            <div class="game-button_title"><h2>Выбор игры</h2></div>
+                <input type="radio" id="bookOfRa" name="bor-game" checked>
+                <label for="bookOfRa">
+                    <img class="bor" src="./assets/img/book-of-ra.png" alt="">
+                    <img class="img-hover bor-hover" src="./assets/img/book-of-ra-hover.png" alt="">
+                    <img class="blick-hover blick-1" src="./assets/img/button-hover-blick.png" alt="">
+                </label>
+                <input type="radio" id="bookOfRaDeluxe" name="bor-game">
+                <label for="bookOfRaDeluxe">
+                    <img class="bor-del" src="./assets/img/book-of-ra-deluxe.png" alt="">
+                    <img class="img-hover bor-del-hover" src="./assets/img/book-of-ra-deluxe-hover.png" alt="">
+                    <img class="blick-hover blick-2" src="./assets/img/button-hover-blick.png" alt="">
+                </label>
+                <input type="radio" id="bookOfRa6" name="bor-game">
+                <label for="bookOfRa6">
+                    <img class="bor-del-6" src="./assets/img/book-of-ra-6.png" alt="">
+                    <img class="img-hover bor-del-6-hover" src="./assets/img/book-of-ra-6-hover.png" alt="">
+                    <img class="blick-hover blick-3" src="./assets/img/button-hover-blick.png" alt="">
+                </label>
+        </div>
+        <div class="game">
+            <iframe class="bookOfRa" src="/game_promo/novomatic/book_of_ra">
+            </iframe>
+            <iframe class="bookOfRaDeluxe js-display-hide" src="/game_promo/novomatic/book_of_ra_deluxe">
+            </iframe>
+            <iframe class="bookOfRa6 js-display-hide" src="/game_promo/novomatic/book_of_ra_deluxe_6">
+            </iframe>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script src="https://ulogin.ru/js/ulogin.js"></script>
+<script src="./assets/js/cookie.js"></script>
+<script src="./assets/js/shared.js"></script>
+<script src="./assets/js/slot.js"></script>
+
+</body>
+</html>
