@@ -21,8 +21,7 @@ const
 
 gulp.task('js', () => {
     return gulp.src([
-        './projects/**/*.js',
-        '!projects/**/{cookie,shared}.js'
+        './src/**/*.js'
     ])
         .pipe($.babel({
             ignore: BABEL_IGNORE
@@ -32,7 +31,7 @@ gulp.task('js', () => {
 });
 
 gulp.task('sass', () => {
-    return gulp.src('./projects/**/*.scss')
+    return gulp.src('./src/**/*.scss')
         .pipe($.sass()
             .on('error', $.sass.logError))
         .pipe($.postcss([autoprefixer({ browsers: ['last 2 versions'] })]))
@@ -44,33 +43,33 @@ gulp.task('sass', () => {
 });
 
 gulp.task('images', () => {
-    return gulp.src('./projects/**/*.+(png|gif|jpg|jpeg|ico)', { follow: true })
+    return gulp.src('./src/**/*.+(png|gif|jpg|jpeg|ico)', { follow: true })
         .pipe(gulp.dest(destDir))
 });
 
 gulp.task('images.min', () => {
-    return gulp.src('projects/**/*.+(png|jpg|jpeg)', { follow: true })
+    return gulp.src('src/**/*.+(png|jpg|jpeg)', { follow: true })
         .pipe($.image({
             pngquant: true,
             optipng: true,
             jpegoptim: true,
             mozjpeg: true
         }))
-        .pipe(gulp.dest('projects'))
+        .pipe(gulp.dest('src'))
 })
 
 gulp.task('videos', () => {
-    return gulp.src('./projects/**/*.+(mp4|ogv|ogg|webm)')
+    return gulp.src('./src/**/*.+(mp4|ogv|ogg|webm)')
         .pipe(gulp.dest(destDir))
 });
 
 gulp.task('copy_assets', () => {
-    return gulp.src('./projects/**/*.+(less|css|cur|svg|ttf|otf|eot|woff|woff2|txt|mp3)', { follow: true })
+    return gulp.src('./src/**/*.+(less|css|cur|svg|ttf|otf|eot|woff|woff2|txt|mp3)', { follow: true })
         .pipe(gulp.dest(destDir));
 });
 
 gulp.task('assets.revisioning', ['js', 'sass'], () => {
-    return gulp.src(`./projects/**/*.html`)
+    return gulp.src(`./src/**/*.html`)
         .pipe($.versionNumber({
             value: '%TS%',
             append: {
@@ -83,9 +82,7 @@ gulp.task('assets.revisioning', ['js', 'sass'], () => {
 
 gulp.task('js:local', () => {
     return gulp.src([
-        `./projects/${argv.project}/**/*.js`,
-        `!projects/${argv.project}/**/{cookie,shared}.js`,
-        `!projects/${argv.project}/__mobile/**/*.js`
+        `./src/${argv.project}/**/*.js`
     ])
         .pipe($.sourcemaps.init())
         .pipe($.babel())
@@ -95,7 +92,7 @@ gulp.task('js:local', () => {
 });
 
 gulp.task('sass:local', () => {
-    return gulp.src(`./projects/${argv.project}/**/*.scss`)
+    return gulp.src(`./src/${argv.project}/**/*.scss`)
         .pipe($.sourcemaps.init())
         .pipe($.sass()
             .on('error', $.sass.logError))
@@ -106,7 +103,7 @@ gulp.task('sass:local', () => {
 });
 
 gulp.task('copy_assets:local', () => {
-    return gulp.src(`./projects/${argv.project}/**/*.+(css|less|html|png|svg|gif|jpg|jpeg|ico|cur|ttf|otf|eot|woff|woff2|txt|mp3)`)
+    return gulp.src(`./src/${argv.project}/**/*.+(css|less|html|png|svg|gif|jpg|jpeg|ico|cur|ttf|otf|eot|woff|woff2|txt|mp3)`)
         .pipe(gulp.dest(destDir))
         .on('end', browserSync.reload);
 });
@@ -120,9 +117,9 @@ gulp.task('browser-sync', () => {
         logLevel: 'info'
     });
 
-    gulp.watch(`./projects/${argv.project}/**/*.js`, ['js:local']);
-    gulp.watch(`./projects/${argv.project}/**/*.scss`, ['sass:local']);
-    gulp.watch(`./projects/${argv.project}/**/*.+(css|html|png|svg|gif|jpg|ico|ttf|otf|eot|woff|woff2)`, ['copy_assets:local']);
+    gulp.watch(`./src/${argv.project}/**/*.js`, ['js:local']);
+    gulp.watch(`./src/${argv.project}/**/*.scss`, ['sass:local']);
+    gulp.watch(`./src/${argv.project}/**/*.+(css|html|png|svg|gif|jpg|ico|ttf|otf|eot|woff|woff2)`, ['copy_assets:local']);
 });
 
 gulp.task('check_argv', () => {

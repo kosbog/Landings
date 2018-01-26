@@ -1,60 +1,71 @@
 $(document).ready(function () {
 
-    setTimeout(function () {
-        PopUpShow();
-        setInterval(function () {
-            PopUpShow();
-        }, 240000);
-    }, 120000);
+    var isPopUp = $('#popup');
+    isPopUp = false;
 
-    setInterval(function () {
-        lightningPoint();
-    }, 5500);
-
-    $('.popup-close').click(function () {
-        PopUpHide();
+    $('.reg-img').click(function () {
+        popupShow();
+        isPopUp = true;
     });
 
-    $('.game-button input').click(function () {
+    function popupShow() {
+        if (isPopUp) {
+            return false;
+        } else if ($(window).width() < 1000) {
+            $('#popup').velocity('fadeIn', {
+                duration: 450,
+                complete: function () {
+                    $('.reg-ball-left, .reg-ball-right').velocity({ opacity: 0 }, { duration: 450 });
+                }
+            });
 
-        var point = $(this).attr('id');
-        if ($("input:not(:checked)")) {
-            $('iframe').removeClass('js-display-show');
-            $('body').removeClass('js-bg-bookOfRa, js-bg-bookOfRaDeluxe , js-bg-bookOfRa6');
+            one(75);
+            setTimeout(function () {
+                two();
+            }, 1700);
+        } else if ($(window).width() > 1000) {
+            $('#popup').velocity('fadeIn', {
+                duration: 450,
+                complete: function () {
+                    $('.reg-ball-left, .reg-ball-right').velocity({ opacity: 0 }, { duration: 450 });
+                }
+            });
+
+            one(62);
+            setTimeout(function () {
+                two();
+            }, 1700);
         }
+    }
 
-        function changeGameAndBG() {
-            $('.' + point + '').addClass('js-display-show');
-            $('body').addClass('js-bg-' + point + '');
-        }
+    function one(xWidth) {
+        $('.popup-reg-ball-left').animate({
+            opacity: 1,
+            left: xWidth + "%"
+        }, 1800);
+        $('.popup-reg-ball-right').animate({
+            opacity: 1,
+            right: xWidth + "%"
+        }, 1800);
+    }
 
-        changeGameAndBG();
-    });
+    function two() {
+        $('.popup-regform').animate({
+            opacity: 1
+        }, 800);
+        $('.popup-reg-ball-right').addClass('animate-shadow-right');
+        $('.popup-reg-ball-left').addClass('animate-shadow-left');
+    }
 
     $('#email-form').on('submit', function (e) {
         e.preventDefault();
-        wl_shared.registerUser($('.email-input').val());
     });
 
     $('.email-input').focus(function () {
         $('.error-text').text('');
     });
 
-    function PopUpShow() {
-        $("#popup").fadeIn(1000);
-    }
+    window.uloginAuthCb = function (token) {
 
-    function PopUpHide() {
-        $("#popup").fadeOut(400);
-    }
-
-    function lightningPoint() {
-
-        setTimeout(function () {
-            $('.reg-button-blick, .regform-blick, .blick-1, .blick-2, .blick-3').fadeOut('slow');
-        }, 1000);
-
-        $('.reg-button-blick, .regform-blick, .blick-1, .blick-2, .blick-3').fadeIn();
-    }
-
+    };
 });
