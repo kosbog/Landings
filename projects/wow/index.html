@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>World of WarCraft! Come and play!</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Mobile redirect -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.0/mobile-detect.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var location = window.location,
+                agent = navigator.userAgent || navigator.vendor || window.opera,
+                mobilePrefix = 'm',
+                hostname = location.hostname.split('.'),
+                isWWW = /w{3}|ww\d/.test(hostname[0]);
+
+            if (
+                hostname[0] === mobilePrefix ||
+                isWWW && hostname[1] === mobilePrefix
+            ) {
+                return;
+            }
+
+            if (isWWW) {
+                hostname.splice(1, 0, mobilePrefix);
+            } else {
+                hostname.unshift(mobilePrefix);
+            }
+
+            var url = [
+                location.protocol + '//', //protocol
+                hostname.join('.'), //hostname
+                location.port ? ':' + location.port : '', //port
+                location.pathname, //path
+                location.search ? location.search : '' // query
+            ].join('');
+
+            var md = new MobileDetect(agent),
+                tablet = md.tablet(),
+                mobile = md.mobile();
+
+            if (mobile || tablet) {
+                window.location = url;
+            }
+
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="//worldofwarcraft.com">
+                <img src="./images/logo.png" alt="World of Warcraft">
+            </a>
+        </header>
+        <main>
+            <div class="exhortation">
+                <div class="sideImg left">
+                    <img src="./images/hero-5.png" alt="JAINA">
+                </div>
+                <div class="title">
+                    <div class="title-wrapper">
+                        <p>
+                            come and play with us!
+                        </p>
+                        <a href="//worldofwarcraft.com" class="link">
+                            Join
+                        </a>
+                    </div>
+                </div>
+                <div class="sideImg right">
+                    <img src="./images/hero-0.png" alt="THRALL">
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="rights">
+                ©2018 BLIZZARD ENTERTAINMENT, INC. ALL RIGHTS RESERVED.
+                <br/> All trademarks referenced herein are the properties
+                <br/> of their respective owners.
+            </div>
+            <div class="blizzard">
+                <img src="./images/Logo-blizzard.png" alt="BLIZZARD ENTERTAINMENT">
+            </div>
+            <div class="info">
+                <img src="./images/pegi.png" alt="Pegi 12+">
+                <img src="./images/violence.png" alt="Violence">
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
