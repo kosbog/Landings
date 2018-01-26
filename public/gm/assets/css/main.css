@@ -94,19 +94,30 @@ header {
   max-width: 295px;
   position: absolute;
   z-index: 4;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+  top: 50%; }
+  .reg-ball-left:hover img,
+  .reg-ball-right:hover img {
+    border-radius: 50%;
+    -webkit-transition: -webkit-box-shadow .4s;
+    transition: -webkit-box-shadow .4s;
+    transition: box-shadow .4s;
+    transition: box-shadow .4s, -webkit-box-shadow .4s;
+    -webkit-animation: shadowLight 1.5s ease-in-out infinite;
+            animation: shadowLight 1.5s ease-in-out infinite; }
 
 .reg-ball-left {
-  left: -147px; }
+  left: -137px;
+  -webkit-animation: shake-in 2s ease-in infinite;
+          animation: shake-in 2s ease-in infinite; }
 
 .reg-ball-right {
-  right: -147px; }
+  right: -137px;
+  -webkit-animation: shake 2s ease-in infinite;
+          animation: shake 2s ease-in infinite; }
 
 .popup-reg-ball-right,
 .popup-reg-ball-left {
-  background-image: url("../img/register-bg-min.png");
+  background-image: url("../img/pokeball-resize.png");
   background-position: -100% 0;
   width: 100%;
   max-width: 147px;
@@ -524,6 +535,70 @@ iframe {
 
 .js-error-visible {
   visibility: visible; }
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@-webkit-keyframes shake-in {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) translateY(-50%);
+            transform: rotateZ(0) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(-3deg) translateY(-50%);
+            transform: rotateZ(-3deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@keyframes shake-in {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) translateY(-50%);
+            transform: rotateZ(0) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(-3deg) translateY(-50%);
+            transform: rotateZ(-3deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@-webkit-keyframes shadowLight {
+  0%, 100% {
+    -webkit-box-shadow: 0 0 0 0 #004A94;
+            box-shadow: 0 0 0 0 #004A94; }
+  50% {
+    -webkit-box-shadow: 0 0 30px 5px #004A94;
+            box-shadow: 0 0 30px 5px #004A94; } }
+
+@keyframes shadowLight {
+  0%, 100% {
+    -webkit-box-shadow: 0 0 0 0 #004A94;
+            box-shadow: 0 0 0 0 #004A94; }
+  50% {
+    -webkit-box-shadow: 0 0 30px 5px #004A94;
+            box-shadow: 0 0 30px 5px #004A94; } }
 
 @media (min-width: 480px) and (max-width: 599px) {
   .reg-ball-left {

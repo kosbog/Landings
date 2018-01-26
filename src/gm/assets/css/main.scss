@@ -104,20 +104,27 @@ header {
     position: absolute;
     z-index: 4;
     top: 50%;
-    transform: translateY(-50%);
+    &:hover img {
+        border-radius: 50%;
+        transition: box-shadow .4s;
+        animation: shadowLight 1.5s ease-in-out infinite;
+    }
 }
 
 .reg-ball-left {
-    left: -147px;
+    left: -137px;
+    animation: shake-in 2s ease-in infinite;
+    
 }
 
 .reg-ball-right {
-    right: -147px;
+    right: -137px;
+    animation: shake 2s ease-in infinite;
 }
 
 .popup-reg-ball-right,
 .popup-reg-ball-left {
-    background-image: url("../img/register-bg-min.png");
+    background-image: url("../img/pokeball-resize.png");
     background-position: -100% 0;
     width: 100%;
     max-width: 147px;
@@ -126,6 +133,7 @@ header {
     z-index: 4;
     top: 50%;
     transform: translateY(-50%);
+    
 }
 
 .reg-ball-left img,
@@ -580,6 +588,37 @@ iframe {
     visibility: visible;
 }
 
+// Animation
+@keyframes shake {
+    0% ,100%{
+        transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+        transform-origin: center bottom;
+    }
+    25%, 75%{
+        transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+        transform-origin: center bottom;
+    }
+}
+@keyframes shake-in {
+    0% ,100%{
+        transform: rotateZ(0) translateY(-50%);
+        transform-origin: center bottom;
+    }
+    25%, 75%{
+        transform: rotateZ(-3deg) translateY(-50%);
+        transform-origin: center bottom;
+    }
+}
+@keyframes shadowLight {
+    0%, 100%{
+        box-shadow: 0 0 0 0 #004A94;
+    }
+    50%{
+        box-shadow: 0 0 30px 5px #004A94;
+    }
+}
+
+// Media
 @media (min-width: 480px) and (max-width: 599px) {
     .reg-ball-left {
         left: -17%;
