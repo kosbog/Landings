@@ -34,8 +34,6 @@ $(document).ready(function () {
         }
     }
 
-    window.uloginAuthCb = function (token) {};
-
     // ---------------- CUSTOM FUNCTIONS
     $galleryItem.on({
         'win': function win() {

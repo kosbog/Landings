@@ -18,3 +18,4 @@ $(document).ready(function () {
         $(this).siblings('.menu__list').slideToggle();
     });
 });
+//# sourceMappingURL=main.js.map
