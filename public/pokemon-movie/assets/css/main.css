@@ -1,0 +1,502 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html,
+body,
+div,
+span,
+h3,
+p,
+a,
+img,
+b,
+i,
+ul,
+li,
+form,
+label,
+table,
+tbody,
+tr,
+td,
+aside,
+footer,
+header,
+nav,
+section,
+input,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  outline: none; }
+
+a {
+  text-decoration: none; }
+
+ul {
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+body {
+  background-repeat: no-repeat;
+  background-color: #000000;
+  background-size: 100%;
+  position: relative;
+  height: 100%; }
+
+#container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; }
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+header {
+  background-image: url(../img/pokemon-logo.png);
+  width: 100%;
+  height: 15%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
+  header:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%; }
+
+.reg-ball-left,
+.reg-ball-right {
+  cursor: pointer;
+  width: 34%;
+  max-width: 295px;
+  position: absolute;
+  z-index: 4;
+  top: 50%; }
+  .reg-ball-left:after, .reg-ball-left:before,
+  .reg-ball-right:after,
+  .reg-ball-right:before {
+    opacity: 0;
+    display: block;
+    position: absolute;
+    -webkit-transform: rotateZ(-20deg);
+            transform: rotateZ(-20deg);
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.75), inset 0 0 6px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.75), inset 0 0 6px rgba(0, 0, 0, 0.75);
+    border-radius: 50%; }
+  .reg-ball-left:after,
+  .reg-ball-right:after {
+    content: 'Хочешь билет?';
+    left: 100%;
+    top: 0;
+    text-align: center;
+    padding: 4%;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+    font-family: Verdana, Tahoma, sans-serif; }
+  .reg-ball-left:before,
+  .reg-ball-right:before {
+    content: '';
+    width: 22px;
+    height: 19px;
+    left: 92%;
+    top: 40px; }
+  .reg-ball-left:hover img,
+  .reg-ball-right:hover img {
+    border-radius: 50%;
+    -webkit-transition: -webkit-box-shadow .4s;
+    transition: -webkit-box-shadow .4s;
+    transition: box-shadow .4s;
+    transition: box-shadow .4s, -webkit-box-shadow .4s;
+    -webkit-animation: shadowLight 1.5s ease-in-out infinite;
+            animation: shadowLight 1.5s ease-in-out infinite; }
+  .reg-ball-left:hover:after, .reg-ball-left:hover:before,
+  .reg-ball-right:hover:after,
+  .reg-ball-right:hover:before {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 1; }
+
+.reg-ball-left {
+  left: -137px;
+  -webkit-animation: shake-in 2s ease-in infinite;
+          animation: shake-in 2s ease-in infinite; }
+
+.reg-ball-right {
+  right: -137px;
+  -webkit-animation: shake 2s ease-in infinite;
+          animation: shake 2s ease-in infinite; }
+  .reg-ball-right:after {
+    -webkit-transform: rotateZ(-20deg) rotateY(180deg);
+            transform: rotateZ(-20deg) rotateY(180deg); }
+
+.reg-ball-left img,
+.reg-ball-right img {
+  width: 100%; }
+
+.popup-reg-ball-right,
+.popup-reg-ball-left {
+  background-image: url("../img/pokeball-resize.png");
+  background-position: -100% 0;
+  width: 100%;
+  max-width: 147px;
+  height: 295px;
+  position: absolute;
+  z-index: 4; }
+
+.popup-reg-ball-right {
+  background-position: 0 0; }
+
+.game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+  .game:before, .game:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    -webkit-box-shadow: 0 0 40px 30px #004A94;
+            box-shadow: 0 0 40px 30px #004A94; }
+  .game:before {
+    top: 0; }
+  .game:after {
+    bottom: 0; }
+
+iframe {
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%; }
+
+#popup,
+#popup-warning {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1111;
+  color: #ff9f15;
+  display: none; }
+
+#popup-warning {
+  background-color: black;
+  color: #ffffff; }
+
+#popup-warning p {
+  font-size: 26px;
+  padding: 5px;
+  width: 90%;
+  margin: 0 auto; }
+
+.popup-container,
+.popup-container-2 {
+  position: relative;
+  width: 90%;
+  height: 335px;
+  margin: 0 auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  text-align: center; }
+
+.popup-container-2 {
+  background: url("../img/popup-bg-min.png") no-repeat center;
+  background-size: 90% 100%;
+  width: 95%; }
+
+.popup-reg-ball-left {
+  opacity: 1; }
+
+.popup-reg-ball-right {
+  opacity: 1; }
+
+.popup-title-2 {
+  position: relative;
+  top: 47%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+.popup-regform {
+  position: absolute;
+  left: 50%;
+  z-index: 5555;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 100px;
+  text-align: center;
+  opacity: 0; }
+
+.popup-regform input {
+  display: block;
+  position: relative;
+  top: 7px;
+  width: 231px;
+  height: 46px;
+  margin: 0 auto;
+  background-color: #000000;
+  border: 2px solid #B73A33;
+  color: #ffffff;
+  padding: 0 0 0 45px;
+  font-size: 16px;
+  outline: none; }
+
+.popup-regform input::-webkit-input-placeholder,
+.popup-regform input::-moz-placeholder,
+.popup-regform input:-ms-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 13px;
+  font-family: Verdana, sans-serif; }
+
+.popup-regform button {
+  position: relative;
+  top: 40px;
+  width: 231px;
+  height: 46px;
+  font-size: 14px;
+  background-color: #DCDDE7;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.75), inset 0 0 6px rgba(0, 0, 0, 0.75);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.75), inset 0 0 6px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  text-transform: uppercase;
+  -webkit-transition: box-shadow .3s;
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  cursor: pointer;
+  font-family: Verdana, Tahoma, sans-serif; }
+
+.popup-regform button:hover {
+  -webkit-box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), inset 0 0 6px rgba(0, 0, 0, 0.75);
+          box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), inset 0 0 6px rgba(0, 0, 0, 0.75); }
+
+.popup-regform .regform-mail-icon {
+  position: absolute;
+  top: 20px;
+  left: 14px; }
+
+.email-error {
+  width: 230px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 60px;
+  bottom: 10px;
+  color: #ff0b00; }
+
+.email-error p {
+  font-size: 14px; }
+
+.js-opacity-show {
+  opacity: 1;
+  z-index: 2;
+  -webkit-transition: 1s;
+  transition: 1s; }
+
+.js-display-hide {
+  display: none; }
+
+.js-display-show {
+  display: block;
+  opacity: 1;
+  z-index: 2;
+  -webkit-transition: 1s;
+  transition: 1s; }
+
+.js-error-visible {
+  visibility: visible; }
+
+.goLeft, .goRight {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+
+.goLeft {
+  -webkit-animation-name: goLeft;
+          animation-name: goLeft; }
+
+.goRight {
+  -webkit-animation-name: goRight;
+          animation-name: goRight; }
+
+@-webkit-keyframes goLeft {
+  from {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%); }
+  to {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    -webkit-transform: translate(100%, -50%);
+            transform: translate(100%, -50%); } }
+
+@keyframes goLeft {
+  from {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%); }
+  to {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    -webkit-transform: translate(100%, -50%);
+            transform: translate(100%, -50%); } }
+
+@-webkit-keyframes goRight {
+  from {
+    top: 50%;
+    right: 50%;
+    opacity: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%); }
+  to {
+    top: 50%;
+    right: 50%;
+    opacity: 1;
+    -webkit-transform: translate(-100%, -50%);
+            transform: translate(-100%, -50%); } }
+
+@keyframes goRight {
+  from {
+    top: 50%;
+    right: 50%;
+    opacity: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%); }
+  to {
+    top: 50%;
+    right: 50%;
+    opacity: 1;
+    -webkit-transform: translate(-100%, -50%);
+            transform: translate(-100%, -50%); } }
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(0) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+            transform: rotateZ(3deg) rotateY(180deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@-webkit-keyframes shake-in {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) translateY(-50%);
+            transform: rotateZ(0) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(-3deg) translateY(-50%);
+            transform: rotateZ(-3deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@keyframes shake-in {
+  0%, 100% {
+    -webkit-transform: rotateZ(0) translateY(-50%);
+            transform: rotateZ(0) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; }
+  25%, 75% {
+    -webkit-transform: rotateZ(-3deg) translateY(-50%);
+            transform: rotateZ(-3deg) translateY(-50%);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom; } }
+
+@-webkit-keyframes shadowLight {
+  0%, 100% {
+    -webkit-box-shadow: 0 0 0 0 #004A94;
+            box-shadow: 0 0 0 0 #004A94; }
+  50% {
+    -webkit-box-shadow: 0 0 30px 5px #004A94;
+            box-shadow: 0 0 30px 5px #004A94; } }
+
+@keyframes shadowLight {
+  0%, 100% {
+    -webkit-box-shadow: 0 0 0 0 #004A94;
+            box-shadow: 0 0 0 0 #004A94; }
+  50% {
+    -webkit-box-shadow: 0 0 30px 5px #004A94;
+            box-shadow: 0 0 30px 5px #004A94; } }
+
+@media (min-width: 480px) and (max-width: 599px) {
+  .reg-ball-left {
+    left: -17%; }
+  .reg-ball-right {
+    right: -17%; }
+  .popup-reg-ball-right,
+  .popup-reg-ball-left {
+    background-position: 100% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 26%;
+    max-width: 147px;
+    height: 80%;
+    top: 46%; }
+  .popup-reg-ball-right {
+    background-position: 0 0; } }
+
+@media (min-width: 600px) and (max-width: 769px) {
+  .reg-ball-left {
+    left: -17%; }
+  .reg-ball-right {
+    right: -17%; } }
+
+@media all and (orientation: portrait) {
+  #popup-warning {
+    display: block; } }
+
+/*# sourceMappingURL=main.css.map */
