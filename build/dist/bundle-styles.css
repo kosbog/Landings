@@ -1,0 +1,373 @@
+@font-face {
+  font-family: 'aa_bebas_neueregular';
+  src: url(src/assets/fonts/aa-bebasneue-webfont.eot);
+  src: url(src/assets/fonts/aa-bebasneue-webfont.eot?#iefix) format("embedded-opentype"), url(src/assets/fonts/aa-bebasneue-webfont.woff2) format("woff2"), url(src/assets/fonts/aa-bebasneue-webfont.woff) format("woff"), url(src/assets/fonts/aa-bebasneue-webfont.ttf) format("truetype"), url(src/assets/fonts/aa-bebasneue-webfont.svg#aa_bebas_neueregular) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'distant_galaxyregular';
+  src: url(src/assets/fonts/DISTGRG_-webfont.woff) format("woff"), url(src/assets/fonts/DISTGRG_-webfont.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@-webkit-keyframes star {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) translateZ(450px) translateY(70%);
+            transform: perspective(400px) translateZ(450px) translateY(70%); }
+  7% {
+    opacity: 0; }
+  13% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) translate(0, 0);
+            transform: perspective(400px) translateZ(0) translate(0, 0); } }
+
+@keyframes star {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) translateZ(450px) translateY(70%);
+            transform: perspective(400px) translateZ(450px) translateY(70%); }
+  7% {
+    opacity: 0; }
+  13% {
+    opacity: 1; }
+  100% {
+    -webkit-transform: perspective(400px) translateZ(0) translate(0, 0);
+            transform: perspective(400px) translateZ(0) translate(0, 0); } }
+
+.star {
+  -webkit-animation: star 20s linear;
+          animation: star 20s linear; }
+
+.show-element {
+  opacity: 1;
+  transition: .3s; }
+
+* {
+  box-sizing: border-box; }
+
+.container::after, .logo::after, .name::after, .coins::after, .register::after {
+  content: "";
+  display: table;
+  clear: both; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 16px; }
+
+body {
+  background: url(static/img/starbg.jpg) repeat scroll center 0; }
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden; }
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 105px; }
+
+.ttt {
+  -webkit-transform: perspective(400px);
+          transform: perspective(400px); }
+
+.logo, .name {
+  text-align: center; }
+
+.logo-img {
+  width: 100%;
+  margin: 50px 0; }
+
+.name, form {
+  opacity: 0; }
+
+.name-header {
+  margin: 0;
+  color: #fff;
+  font-family: distant_galaxyregular;
+  text-shadow: 0px 0px 60px rgba(255, 232, 31, 0.7);
+  font-size: 4.4375rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-bottom: 35px; }
+
+.coins {
+  position: relative;
+  height: 390px;
+  padding-top: 30px; }
+
+.coins input {
+  display: none; }
+
+.coins label {
+  width: 25%;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px; }
+
+.coins-img {
+  position: relative;
+  width: 100%; }
+
+.coins-label-1, .coins-label-2 {
+  background-color: #fff;
+  border-radius: 50%;
+  margin-left: 20%; }
+
+.coins-label-2 {
+  background-color: #f00;
+  margin-left: 55%; }
+
+.coins-label-1, .coins-label-2, .coins-label-3 {
+  transition: .3s linear; }
+
+.coins-label-1:hover,
+.coins-label-2:hover {
+  box-shadow: #fff 0 0 45px 3px;
+  transition: .2s linear; }
+
+.coins-label-2:hover {
+  box-shadow: #ff0000 0 0 45px 3px; }
+
+input[type=radio]:checked + label.coins-label-1 {
+  box-shadow: #fff 0 0 45px 3px; }
+
+input[type=radio]:checked + label.coins-label-2 {
+  box-shadow: #ff0000 0 0 45px 3px; }
+
+.register {
+  color: #ffffff;
+  margin: 25px -10px;
+  padding-left: 20px;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8); }
+
+.register-button, .register-mail, .register-social {
+  float: left; }
+
+.mail-info, .social-info {
+  font-family: distant_galaxyregular;
+  font-size: 12px;
+  margin: 0 0 12px;
+  text-shadow: 0px 0px 30px rgba(255, 232, 31, 0.7); }
+
+.socials-list {
+  padding: 0;
+  margin: 0;
+  position: relative; }
+
+.socials-i {
+  display: inline-block;
+  margin: 0 5px; }
+
+.social-img {
+  cursor: pointer;
+  -webkit-filter: drop-shadow(4px 0px 9px rgba(0, 0, 0, 0.54));
+  filter: drop-shadow(4px 0px 9px rgba(0, 0, 0, 0.54));
+  display: block;
+  border: 0;
+  outline: 0; }
+
+.fb {
+  background: transparent url(src/assets/fonts/Face.svg) no-repeat;
+  width: 20px;
+  height: 43px; }
+
+.vk {
+  background: transparent url(src/assets/fonts/VK-01.svg) no-repeat;
+  width: 54px;
+  height: 31px; }
+
+.ok {
+  background: transparent url(src/assets/fonts/ok.svg) no-repeat;
+  width: 25px;
+  height: 44px; }
+
+.mr {
+  background: transparent url(src/assets/fonts/@-01.svg) no-repeat;
+  width: 35px;
+  height: 35px; }
+
+.register-mail {
+  padding-left: 48px; }
+
+.mail-input {
+  outline: none;
+  border: 3px solid #ffe81f;
+  border-radius: 10px;
+  width: 357px;
+  height: 53px;
+  font-size: 1.8em;
+  padding: 0 .5em;
+  background: black;
+  color: #fff;
+  transition: .6s; }
+
+.mail-input-error {
+  border: 3px solid #ff0000;
+  transition: .6s; }
+
+.mail-input-error-text,
+.mail-input-error-text2 {
+  position: absolute;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #ff0000;
+  text-shadow: none; }
+
+.error {
+  visibility: visible; }
+
+.input-error-text {
+  margin: 5px 0 0 0; }
+
+.register-button {
+  padding: 24px 0 0 43px; }
+
+.button-input {
+  cursor: pointer;
+  outline: none;
+  height: 53px;
+  line-height: 51px;
+  width: 357px;
+  background: rgba(0, 0, 0, 0.699);
+  font-family: distant_galaxyregular;
+  font-size: 39px;
+  letter-spacing: 1px;
+  color: white;
+  text-transform: uppercase;
+  border: 3px solid #ffe81f;
+  border-radius: 10px;
+  transition: all .2s;
+  text-align: center; }
+
+.button-input:hover {
+  box-shadow: 0 0 13px 2px #ffe81f;
+  background: #ffe81f;
+  color: #000;
+  transition: all .2s; }
+
+/* Footer */
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 105px;
+  background: #241f26;
+  display: flex;
+  box-orient: horizontal;
+  flex-direction: row;
+  box-pack: center;
+  justify-content: center;
+  box-align: center;
+  align-items: center;
+  opacity: 0.9; }
+
+#footer img {
+  max-width: 100%;
+  margin: 0 1em; }
+
+.img1 {
+  width: 6%;
+  opacity: .7; }
+
+.opacityImg {
+  opacity: .5; }
+
+#footer .support-img {
+  margin-top: -1em;
+  opacity: 1; }
+
+#footer > span {
+  color: #504e51;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Verdana", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.35px;
+  display: inline-block;
+  margin-top: .3em; }
+
+.show-element {
+  opacity: 1;
+  transition: .7s; }
+
+@media screen and (max-width: 999px) {
+  .logo-img {
+    width: 90%;
+    margin: 35px 0 10px; }
+  .name-header {
+    font-size: 8.5vw;
+    padding-bottom: 10px; }
+  .coins {
+    text-align: center;
+    height: auto;
+    padding: 30px 0 50px; }
+  .coins label {
+    width: 33%;
+    padding: 6px; }
+  .coins-img {
+    width: 100%;
+    padding-top: 2px;
+    position: relative; }
+  .register {
+    text-align: center;
+    margin: 0;
+    padding: 0; }
+  .register-button, .register-mail, .register-social {
+    float: none; }
+  .register-social {
+    margin-bottom: 30px; }
+  .social-img {
+    padding-right: 5.5%; }
+  .register-mail {
+    padding-left: 0px;
+    text-align: center; }
+  .register-button {
+    padding: 0; }
+  .mail-input-error-text {
+    width: 100%;
+    position: relative;
+    margin: 10px 0; }
+  .mail-input-error-text2 {
+    width: 100%;
+    position: relative; }
+  #footer > .img2 {
+    width: 16%; }
+  #footer > span {
+    font-size: 3vw;
+    letter-spacing: 0; }
+  .img1 {
+    display: none; }
+  .coins label {
+    position: relative; }
+  .coins-label-1, .coins-label-2 {
+    margin: 0 6%; } }
+
+@media screen and (max-width: 767px) {
+  .mail-input {
+    width: 90%; }
+  .button-input,
+  .button-input:hover {
+    width: 90%;
+    font-size: 10vw; }
+  #footer {
+    height: 80px; }
+  #footer img {
+    width: 10%;
+    margin: 0 .5em; }
+  #footer .support-img {
+    margin-top: -.5em;
+    width: 11%; } }
+
