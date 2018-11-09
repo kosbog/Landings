@@ -78,7 +78,7 @@ gulp.task('scripts', function () {
     //prevent pipe breaking caused by errors from gulp plugins
     .pipe(plumber())
     //this is the filename of the compressed version of our JS
-    .pipe(concat('app.js'))
+    // .pipe(concat('app.js'))
     //catch errors
     .on('error', gutil.log)
     //where we will store our finalized, compressed script
@@ -95,8 +95,6 @@ gulp.task('scripts-deploy', function () {
   return gulp.src(['app/assets/scripts/**/*.js'])
     //prevent pipe breaking caused by errors from gulp plugins
     .pipe(plumber())
-    //this is the filename of the compressed version of our JS
-    .pipe(concat('app.js'))
     //compress :D
     .pipe(minify())
     //where we will store our finalized, compressed script
@@ -209,19 +207,9 @@ gulp.task('clean-dist', function () {
   ]);
 });
 
-//cleans in case things got deleted
-gulp.task('clean', ['clean-dist'], function () {
-  return del([
-    'app/assets/scripts/*.js',
-    'app/assets/styles/*.css',
-    'app/index.html'
-  ]);
-});
-
 //create folders using shell
 gulp.task('scaffold', function () {
   return shell.task([
-    'mkdir ./dist',
     'mkdir ./dist/fonts',
     'mkdir ./dist/images',
     'mkdir ./dist/scripts',
