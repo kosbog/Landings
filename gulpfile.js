@@ -194,7 +194,7 @@ gulp.task('html-deploy', function () {
     .pipe(gulp.dest('dist/assets/fonts'));
 
   //grab all of the styles
-  gulp.src(['app/scss/*.css'])
+  gulp.src(['app/assets/styles/*.css'])
     //prevent pipe breaking caused by errors from gulp plugins
     .pipe(plumber())
     .pipe(gulp.dest('dist/assets/styles'));
