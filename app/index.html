@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>May the force be with you!..</title>
+  <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+
+<body><audio id="sound-dart">
+    <source src="./assets/audio/Darth Vader.mp3" type="audio/mpeg"></audio><audio id="sound-jedi">
+    <source src="./assets/audio/lightsaber_02.mp3" type="audio/mpeg"></audio><audio id="sound-theme">
+    <source src="./assets/audio/star_wars_main_theme_2.mp3" type="audio/mpeg"></audio>
+  <div class="wrapper">
+    <div class="container">
+      <div class="logo star"><a href="/"><img src="./assets/images/sw_logo_oneline.png" alt="" class="logo-img"></a></div>
+      <div class="name">
+        <h1 class="name-header">choose your side</h1>
+      </div>
+      <form novalidate id="email-form">
+        <div class="coins">
+          <input type="radio" id="gift-1" name="giftId" value="36">
+          <label for="gift-1" class="coins-label-1"><img src="./assets/images/Alliance_logo.png" alt="" class="coins-img coins-img-1">
+          </label>
+          <input type="radio" id="gift-2" name="giftId" value="37">
+          <label for="gift-2" class="coins-label-2"><img src="./assets/images/empire_logo.png" alt="" class="coins-img coins-img-2">
+          </label>
+        </div>
+        <div class="register">
+          <div class="register-social">
+            <p class="social-info">In social network find us:</p>
+            <ul class="socials-list">
+              <li class="socials-i"><a class="social-img fb"></a></li>
+              <li class="socials-i"><a class="social-img inst"></a></li>
+              <li class="socials-i"><a class="social-img twtr"></a></li>
+            </ul>
+          </div>
+          <div class="register-mail">
+            <p class="mail-info">Or your email enter and "Fight now" click</p>
+            <input class="mail-input" name="email" type="email" placeholder="...">
+            <div class="mail-input-error-text">
+              <p class="input-error-text"></p>
+            </div>
+          </div>
+          <div class="register-button">
+            <input class="button-input" type="submit" value="fight now">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="./assets/scripts/main.js"></script>
+</body>
+
+</html>
