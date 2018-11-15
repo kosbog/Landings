@@ -10,21 +10,25 @@
 @keyframes star {
   0% {
     opacity: 0;
-    transform: perspective(400px) translateZ(450px) translateY(70%);
+    transform: perspective(400px) translateZ(450px) translateY(100%);
+
   }
+
   7% {
     opacity: 0
   }
+
   13% {
     opacity: 1;
   }
+
   100% {
     transform: perspective(400px) translateZ(0) translate(0, 0);
   }
 }
 
 .star {
-  animation: star 20s linear;
+  animation: star 10s linear;
 }
 
 .show-element {
@@ -80,7 +84,14 @@ body {
   // left: 50%;
   // transform: translate(-50%, -50%);
   font-size: 160px;
-  color: #ffe81f;
+  color: #000;
+  position: relative;
+  text-shadow: 2px 2px #ffe81f,
+    -2px 2px #ffe81f,
+    2px -2px #ffe81f,
+    -2px -2px #ffe81f,
+    -2px 0px #ffe81f,
+    2px 0px 0px #ffe81f;
 }
 
 .ttt {
@@ -221,6 +232,7 @@ input[type=radio]:checked+label.coins-label-2 {
   height: 44px;
   background-color: transparent;
   background-size: contain;
+
   &:hover {
     opacity: .8;
   }

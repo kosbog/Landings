@@ -1,7 +1,7 @@
 //initialize all of our variables
 var concat, gulp, gutil, sass, minify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, del, plumber;
 
-var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'];
+var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 11', 'opera 12.1', 'ios 6', 'android 4'];
 
 //load all of our dependencies
 //add more here if you want to include more libraries
@@ -43,7 +43,7 @@ gulp.task('images', function (tmp) {
 
 //compressing images & handle SVG files
 gulp.task('images-deploy', function () {
-  gulp.src('app/assets/images/**/*')
+  gulp.src('app/assets/images/*')
     //prevent pipe breaking caused by errors from gulp plugins
     .pipe(plumber())
     .pipe(imagemin({
@@ -120,7 +120,6 @@ gulp.task('styles', function () {
       ]
     }))
     .pipe(autoprefixer({
-      browsers: autoPrefixBrowserList,
       cascade: true
     }))
     //catch errors

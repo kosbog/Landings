@@ -14,12 +14,12 @@ $(document).ready(function () {
     }, 700);
   }, 19000);
 
-  var path = setInterval(() => {
-    val < 420 ?
-      (document.getElementsByTagName('body')[0].style.backgroundPositionY = val + 'px', soundTheme.volume = (1 - (val * 0.0017)))
-      : stopPath();
-    val++;
-  }, 50);
+  // var path = setInterval(() => {
+  //   val < 420 ?
+  //     (document.getElementsByTagName('body')[0].style.backgroundPositionY = val + 'px', soundTheme.volume = (1 - (val * 0.0017)))
+  //     : stopPath();
+  //   val++;
+  // }, 50);
 
   function stopPath() {
     clearInterval(path);

@@ -4,43 +4,25 @@
   font-weight: normal;
   font-style: normal; }
 
-@-webkit-keyframes star {
-  0% {
-    opacity: 0;
-    -webkit-transform: perspective(400px) translateZ(450px) translateY(70%);
-            transform: perspective(400px) translateZ(450px) translateY(70%); }
-  7% {
-    opacity: 0; }
-  13% {
-    opacity: 1; }
-  100% {
-    -webkit-transform: perspective(400px) translateZ(0) translate(0, 0);
-            transform: perspective(400px) translateZ(0) translate(0, 0); } }
-
 @keyframes star {
   0% {
     opacity: 0;
-    -webkit-transform: perspective(400px) translateZ(450px) translateY(70%);
-            transform: perspective(400px) translateZ(450px) translateY(70%); }
+    transform: perspective(400px) translateZ(450px) translateY(100%); }
   7% {
     opacity: 0; }
   13% {
     opacity: 1; }
   100% {
-    -webkit-transform: perspective(400px) translateZ(0) translate(0, 0);
-            transform: perspective(400px) translateZ(0) translate(0, 0); } }
+    transform: perspective(400px) translateZ(0) translate(0, 0); } }
 
 .star {
-  -webkit-animation: star 20s linear;
-          animation: star 20s linear; }
+  animation: star 10s linear; }
 
 .show-element {
   opacity: 1;
-  -webkit-transition: .3s;
   transition: .3s; }
 
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 .container::after,
@@ -76,11 +58,12 @@ body {
 
 .logo {
   font-size: 160px;
-  color: #ffe81f; }
+  color: #000;
+  position: relative;
+  text-shadow: 2px 2px #ffe81f, -2px 2px #ffe81f, 2px -2px #ffe81f, -2px -2px #ffe81f, -2px 0px #ffe81f, 2px 0px 0px #ffe81f; }
 
 .ttt {
-  -webkit-transform: perspective(400px);
-          transform: perspective(400px); }
+  transform: perspective(400px); }
 
 .logo,
 .name {
@@ -137,27 +120,21 @@ form {
 .coins-label-1,
 .coins-label-2,
 .coins-label-3 {
-  -webkit-transition: .3s linear;
   transition: .3s linear; }
 
 .coins-label-1:hover,
 .coins-label-2:hover {
-  -webkit-box-shadow: #fff 0 0 45px 3px;
-          box-shadow: #fff 0 0 45px 3px;
-  -webkit-transition: .2s linear;
+  box-shadow: #fff 0 0 45px 3px;
   transition: .2s linear; }
 
 .coins-label-2:hover {
-  -webkit-box-shadow: #ff0000 0 0 45px 3px;
-          box-shadow: #ff0000 0 0 45px 3px; }
+  box-shadow: #ff0000 0 0 45px 3px; }
 
 input[type=radio]:checked + label.coins-label-1 {
-  -webkit-box-shadow: #fff 0 0 45px 3px;
-          box-shadow: #fff 0 0 45px 3px; }
+  box-shadow: #fff 0 0 45px 3px; }
 
 input[type=radio]:checked + label.coins-label-2 {
-  -webkit-box-shadow: #ff0000 0 0 45px 3px;
-          box-shadow: #ff0000 0 0 45px 3px; }
+  box-shadow: #ff0000 0 0 45px 3px; }
 
 .register {
   color: #ffffff;
@@ -219,12 +196,10 @@ input[type=radio]:checked + label.coins-label-2 {
   padding: 0 .5em;
   background: black;
   color: #fff;
-  -webkit-transition: .6s;
   transition: .6s; }
 
 .mail-input-error {
   border: 3px solid #ff0000;
-  -webkit-transition: .6s;
   transition: .6s; }
 
 .mail-input-error-text {
@@ -257,16 +232,13 @@ input[type=radio]:checked + label.coins-label-2 {
   text-transform: uppercase;
   border: 3px solid #ffe81f;
   border-radius: 10px;
-  -webkit-transition: all .2s;
   transition: all .2s;
   text-align: center; }
 
 .button-input:hover {
-  -webkit-box-shadow: 0 0 13px 2px #ffe81f;
-          box-shadow: 0 0 13px 2px #ffe81f;
+  box-shadow: 0 0 13px 2px #ffe81f;
   background: #ffe81f;
   color: #000;
-  -webkit-transition: all .2s;
   transition: all .2s; }
 
 /* Footer */
@@ -275,26 +247,21 @@ input[type=radio]:checked + label.coins-label-2 {
   left: 0;
   bottom: 0;
   width: 100%;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   height: 105px;
   background: #241f26;
   display: flex;
   box-orient: horizontal;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+      flex-direction: row;
   box-pack: center;
   justify-content: center;
   box-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   opacity: 0.9; }
 
 #footer img {
@@ -325,5 +292,4 @@ input[type=radio]:checked + label.coins-label-2 {
 
 .show-element {
   opacity: 1;
-  -webkit-transition: .7s;
   transition: .7s; }
