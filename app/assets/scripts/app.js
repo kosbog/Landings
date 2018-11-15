@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function(event) {
 
   var soundTheme = document.getElementById('sound-theme'),
     soundJedi = document.getElementById('sound-jedi'),
