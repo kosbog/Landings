@@ -1,5 +1,5 @@
 //initialize all of our variables
-var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, minify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, del, sourceMaps, plumber;
+var concat, gulp, gutil, sass, minify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, del, plumber;
 
 var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'];
 
@@ -10,7 +10,6 @@ gutil = require('gulp-util');
 concat = require('gulp-concat');
 minify = require('gulp-minify');
 sass = require('gulp-sass');
-sourceMaps = require('gulp-sourcemaps');
 imagemin = require('gulp-imagemin');
 minifyCSS = require('gulp-minify-css');
 browserSync = require('browser-sync');
@@ -36,7 +35,15 @@ gulp.task('browserSync', function () {
 
 //compressing images & handle SVG files
 gulp.task('images', function (tmp) {
-  gulp.src(['app/assets/images/*.jpg', 'app/assets/images/*.png'])
+  gulp.src('app/assets/images/*')
+    //prevent pipe breaking caused by errors from gulp plugins
+    .pipe(plumber())
+    .pipe(gulp.dest('app/assets/images'));
+});
+
+//compressing images & handle SVG files
+gulp.task('images-deploy', function () {
+  gulp.src('app/assets/images/**/*')
     //prevent pipe breaking caused by errors from gulp plugins
     .pipe(plumber())
     .pipe(imagemin({
@@ -44,14 +51,6 @@ gulp.task('images', function (tmp) {
       progressive: true,
       interlaced: true
     }))
-    .pipe(gulp.dest('app/assets/images'));
-});
-
-//compressing images & handle SVG files
-gulp.task('images-deploy', function () {
-  gulp.src(['app/assets/images/**/*'])
-    //prevent pipe breaking caused by errors from gulp plugins
-    .pipe(plumber())
     .pipe(gulp.dest('dist/assets/images'));
 });
 
@@ -112,8 +111,6 @@ gulp.task('styles', function () {
         this.emit('end');
       }
     }))
-    //get sourceMaps ready
-    .pipe(sourceMaps.init())
     //include SCSS and list every "include" folder
     .pipe(sass({
       errLogToConsole: true,
@@ -130,8 +127,6 @@ gulp.task('styles', function () {
     .on('error', gutil.log)
     //the final filename of our combined css file
     .pipe(concat('styles.css'))
-    //get our sources via sourceMaps
-    .pipe(sourceMaps.write())
     //where to save our final, compressed css file
     .pipe(gulp.dest('app/assets/styles'))
     //notify browserSync to refresh
