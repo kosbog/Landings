@@ -1,0 +1,42 @@
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 15vw;
+    margin: 20px 0;
+  }
+
+  .title {
+    font-size: 9vw;
+    margin: 0;
+  }
+
+  .sides {
+    margin: 50px 0;
+
+    label {
+      max-width: 280px;
+      margin: 0 15px;
+    }
+  }
+
+  .register {
+    flex-direction: column;
+    align-items: center;
+
+    &>div {
+      width: 80%;
+      margin: 10px 0;
+    }
+
+    .social {
+      order: 3;
+    }
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .register {
+    &>div {
+      max-width: 450px;
+    }
+  }
+}

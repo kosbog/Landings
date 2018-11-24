@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>May the force be with you!</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+
+<body>
+  <audio id="sound-dart">
+    <source src="./assets/audio/Darth Vader.mp3">
+  </audio>
+  <audio id="sound-jedi">
+    <source src="./assets/audio/lightsaber_02.mp3">
+  </audio>
+  <div class="wrapper">
+
+    <div class="logo sw">
+      STAR WARS
+    </div>
+
+    <div class="title">
+      Choose your side
+    </div>
+
+    <form>
+
+      <div class="sides">
+          <input type="radio" name="side" id="light-side" value="1">
+          <label for="light-side" class="light">
+            <img class="light-side-logo" src="./assets/images/Alliance_logo.png" alt="Light side">
+          </label>
+
+          <input type="radio" name="side" id="dark-side" value="2">
+          <label for="dark-side" class="dark">
+            <img class="dark-side-logo" src="./assets/images/empire_logo.png" alt="Dark side">
+          </label>
+      </div>
+
+      <div class="register">
+
+        <div class="social">
+          <div class="social-title mb">
+            Find us in social networks:
+          </div>
+
+          <div class="social-networks">
+            <a class="network fb" href="#"></a>
+            <a class="network twt" href="#"></a>
+            <a class="network inst" href="#"></a>
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <div class="input">
+            <div class="input-title mb">
+              Enter your email:
+            </div>
+            <div class="input-field">
+              <input type="email" placeholder="Your email">
+            </div>
+          </div>
+        </div>
+
+        <div class="action-btn">
+          <button>
+            Fight now!
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <script src="./assets/scripts/app.js"></script>
+</body>
+
+</html>
